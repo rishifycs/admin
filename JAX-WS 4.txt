@@ -1,0 +1,79 @@
+
+Write a JAX-WS web service to perform the following operations. Define a Servlet / JSP that 
+consumes the web service.
+
+Step 1: Create a new project. Click on web application → Name of project → Next → Finish.
+Step 2: Once your project is successfully created. Expand your project, right click on project. 
+Select New → Web Service. Enter the name of new Web Service as operation & package name as 
+com.kk. Click on Finish options.
+Step 3: Once your web service Created. Remove the selected part from Operation.java
+Step 4: Add Operations. The first operation is Addition.
+Operation name is Add. The return type will be integer. Add some parameter.
+Now here I am taking two parameters. 
+Parameter name is a & type will be integer.
+Parameter name is b & type will be integer. After that, click on OK button.
+Step 5: Now the declaration of variable.
+Int c = a+b;
+Return c;
+Step 6: Now repeat, the Step 4 & 5 for creation of Subtraction, multiplication & division Operation.
+Step 7: Now, write the following code for subtraction, multiplication & division method.
+Subtraction method:
+int c = a-b;
+return c;
+Multiplication method:
+int c = a*b;
+return c;
+Division method:
+int c = a/b;
+return c;
+Step 8: Now test your web service.
+Step 9: Now right click on project. Select New → JSP page. Give the file name & click on Finish.
+Step 10: Write the following code in JSP page.
+<%
+ com.kk.Operation a1 = new com.kk.Operation();
+ int d = a1.Add(3, 6);
+ int e = a1.Sub(45, 26);
+ int f = a1.Multi(23, 3);
+ int g = a1.Div(64, 6);
+ out.println("Addition of two numbers is: "+d+"<br>");
+ out.println("Subtraction of two numbers is: "+e+"<br>");
+ out.println("Multiplication of two numbers is: "+f+"<br>");
+ out.println("Division of two numbers is: "+g+"<br>");
+%>
+Step 11: Now right click on JSP page page. Click on Run file. 
+
+
+2) Write a JAX-WS web service server & client to perform the following operations. 
+Define a servlet/ JSP that consumes the web service.
+Step 1: Create a new project. New project → Java Web → Web Application.
+Step 2: Right click on newly created project. Create a new web service. The service name is 
+MyWebServices & package name is rc.com.
+Step 3: Remove the selected content from MyWebService.java 
+Step 4: Write the following code in deleted content.
+@WebMethod (operationName = "Square")
+ public double square (double val) {
+ return val*val;
+}
+Step 5: Now go to the palate. Right click on index.html in project. Click on run file.
+The following window will open after run your index.html file.
+Step 6: Remove the selected part from link.
+Now, the below window will open.
+Step 7: Click on go to the administration console.
+The following window will open.
+Step 8: In left side panel, expand the Application task. Click on your project. 
+Step 9: Go to the general. Scroll down the page, there is one table which name is Modules & 
+Components. In action column, click on View Endpoint.
+Step 10: Click on /WebServices_Using_Clients/MyWebServices?wsdl link.
+Step 11: When you click on link. The View WSDL window will open
+Step 12: Click on first link which will provide the access of server.
+Now minimize the Microsoft edge window.
+Step 13: Create a new Java project.
+Step 14: In Java Application project, create a new web service client.
+Right click on project → New → Web Service Client
+Step 15: In new web service client. Select wsdl URL. Paste the copied link.
+Step 16: Open JavaApplication.java. Type the following code.
+MyWebServices_Service service = new MyWebServices_Service();
+final MyWebService proxy = service.getMyWebServicePort();
+System.out.println(proxy.square(7));
+Step 17: Now import the service packages.
+Step 18: Run the Java application project.

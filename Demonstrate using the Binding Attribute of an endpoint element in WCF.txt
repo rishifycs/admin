@@ -1,0 +1,40 @@
+Aim: Demonstrate using the Binding Attribute of an endpoint element in WCF.
+
+Step 1: Open Visual Studio.
+Step 2: Click on New Project. Select “WCF Service Library”. Click on Next.
+Step 3: Give Project Name as “WCFServiceLibrary”. Click on create.
+Step 4: Once the project is successfully created. Go to Solution Explorer.
+Step 5: Open App.config file. Delete the complete code & type the following code in App.config file.
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+<system.web>
+<compilation debug="true" >
+</compilation>
+</system.web>
+<system.serviceModel>
+<behaviors>
+<serviceBehaviors>
+<behavior name ="NewBehavior">
+<serviceDebug/>
+<serviceMetadata/>
+</behavior>
+</serviceBehaviors>
+</behaviors>
+<services>
+<service behaviorConfiguration="NewBehavior" name="WcfServiceLibrary.Service1">
+<endpoint address="" binding="netTcpBinding" bindingConfiguration=""
+ name="tcp" contract="WcfServiceLibrary.IService1" />
+<endpoint address="mex" binding="mexTcpBinding" bindingConfiguration=""
+ name="mextcp" contract="IMetadataExchange" />
+<host>
+<baseAddresses>
+<add baseAddress = 
+"net.tcp://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/" />
+</baseAddresses>
+</host>
+</service>
+</services>
+</system.serviceModel>
+</configuration>
+Step 6: Now right click on project. Click on Clean & then Build. Once your project is successfully build, then run 
+your project.

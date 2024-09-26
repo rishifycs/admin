@@ -1,0 +1,114 @@
+
+Aim: Write a program to implement a typical service & client operation using WCF.
+
+1) Open Visual Studio. Create a new WCF Service library project.
+2) Write the project name as “MyWCFSolution”.
+3) In solution explorer, Click on project. Open IService1.cs file. Type the following code to perform 
+addition, subtraction, multiplication & division operation.
+ [OperationContract]
+ int add(int a, int b);
+ [OperationContract]
+ int sub(int a, int b);
+ [OperationContract]
+ int multiply(int a, int b);
+ [OperationContract]
+ int divide(int a, int b);
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+4) After that save the file. Now open Service1.cs file. Type the following code:
+int IService1.add(int a, int b)
+ {
+ return a + b;
+ }
+ int IService1.sub(int a, int b)
+ {
+ return a - b;
+ }
+ int IService1.multiply(int a, int b)
+ {
+ return a * b;
+ }
+ int IService1.divide(int a, int b) 
+ { 
+ return a / b;
+ }
+5) Create a new Asp.Net Web Application (.NET Framework) project. For this new project, open new 
+visual studio.
+New Project → Asp.Net Web Application (.NET Framework) → Next.
+6) Give the project name. I have given project name as “WS_p7_client”. Click on next.
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+7) Select the Empty project.
+8) Go to the solution explorer. Right click on project → Click on Add → Select web forms.
+9) Give the web form name is “WebForm1”.
+.
+10) Once, the web form is created. You have to add reference in project. For this process, go to the 
+previously created “MyWCFSolution” project. Right click on that project. Build the project. Once 
+build succussed. Run that project. It will display the following screen. Copy the following highlighted 
+URL.
+Note: Don’t close the window. Minimize the window.
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+11) Now, open the “WS_p7_client” project. Right click on the project, Click on Add. Select Service 
+Reference.
+12) Now paste the copied URL in address. Click on GO button.
+13) After that, it will display the following window. Click on Service 1. Expand that service & then click 
+on OK. 
+Note: After this step, check the solution explorer. Click on reference, you can see there are many 
+references are added.
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+14) Go to the solution explorer, expand the WebForm1.aspx. Open the WebForm1.aspx.cs file.
+15) Type the following highlighted code.
+16) Type the following code.
+ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+int a, b;
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+17) Now, open the WebForm1.aspx file. Go to the source. Click on toolbox → Add 2 textbox field to enter 
+numbers.
+18) Now you have to add 4 buttons. 
+• Go to toolbox, search for button. Drag & drop the button in source.
+• Right click on add button. Go to the properties. Give the button Text is “Add” & ID is 
+“Add_Btn”.
+Repeat the step 18 for Subtract, Multiply & division button. Only change the button text name & 
+ID.
+19) The following screen will be displayed.
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+20) Now add 1 Label field to display the output. Go to the label properties & remove the name of label.
+21) In this step, double click on Add button, that will lead you to function of respective button. Type the 
+following code
+int a = Convert.ToInt32(TextBox1.Text);
+ int b = Convert.ToInt32(TextBox2.Text);
+ int sum = client.add(a, b);
+ if(sum > 0)
+ Label1.Text = sum.ToString();
+22) Repeat the step 21 for Subtraction, Multiplication & division.
+ protected void Sub_Btn_Click(object sender, EventArgs e)
+ {
+ int a = Convert.ToInt32(TextBox1.Text);
+ int b = Convert.ToInt32(TextBox2.Text);
+ int sum = client.sub(a, b);
+ if (sum > 0)
+ Label1.Text = sum.ToString();
+ }
+ protected void Mul_Btn_Click(object sender, EventArgs e)
+ {
+ int a = Convert.ToInt32(TextBox1.Text);
+ int b = Convert.ToInt32(TextBox2.Text);
+ int sum = client.multiply(a, b);
+ if (sum > 0)
+ Label1.Text = sum.ToString();
+ }
+ protected void Div_Btn_Click(object sender, EventArgs e)
+ {
+ int a = Convert.ToInt32(TextBox1.Text);
+ int b = Convert.ToInt32(TextBox2.Text);
+ int sum = client.divide(a, b);
+ if (sum > 0)
+ Label1.Text = sum.ToString();
+ }
+Name: Rishi jha Roll No : 248635
+Mulund College Of Commerce (Autonomous) Web Services
+23) Finally, run the project & check whether the expected output is displayed or not.

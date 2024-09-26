@@ -1,0 +1,57 @@
+Aim: Use WCF to create a basic ASP.NET asynchronous Javascript & XML (AJAX).
+
+1) Open Visual Studio. File → New → Project → ASP.NET Web Application.
+2) Name of the project is “AJAXwebvservice” → Select empty project.
+3) Add a default WebForm.aspx and rename it. For this step, right click on your project → Add → New Item →
+Web Form. Rename the web form as “MyPage.aspx”. Click on Add button.
+4) Now, create AJAX enabled Service.
+Right click on Project → Add → New Item → Select WCF Service (AJAX Enabled).
+(if WCF Service (AJAX Enabled) Not Found Then Open Visual Studio Installer In Click on Modify then Click On 
+Individual Component Search For Windows Communication Foundation and check it and click on modify)
+5) Open AJAX File add the following code by replacing DoWork() Method
+public double Sum(double a, double b)
+{
+double result = a + b;
+return result
+}
+6) Download jquery. To download the JQuery follow the following steps:
+• Open Google chrome. Type the “https://jquery.com/” URL in search engine.
+• Click on download JQuery.
+• Click on “download the Uncompressed, development jQuery 3.7.0”. The following window will display.
+• Select all text. Copy the text & paste it in notepad++ or notepad.
+• Save the file with name “JQuery.js”.
+7) To add Library for JQuery in Project.
+Now, right click on Project Name → Add → Existing Item → Add. 
+8) Open MyPage.aspx & Add the Following Code inside the <div> tag.
+Enter a Number :＜input id="txt1" type="text" /＞＜br /＞＜br /＞
+Enter a Number:＜input id="txt2" type="text" /＞＜br /＞＜br /＞
+＜input id="btn" type="button" value="Add Numbers" /＞＜br /＞＜br /＞
+＜input id="txt3" type="text" /＞
+9) Add the following code in MyPage.aspx in ＜head＞ tag
+<script type="text/javascript" src="jquery.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function () {
+ $("#btn").click(function () {
+ var num1 = $("#txt1").val();
+ var num2 = $("#txt2").val();
+ alert(num1);
+ alert(num2);
+ $.ajax({
+ url: "Service1.svc/Sum",
+ type: "POST",
+ contentType: "application/json; charset=utf-8",
+ data: JSON.stringify({ a: num1, b: num2 }),
+ dataType: "json",
+ success: function (data) {
+ alert(data.d);
+ $("#txt3").val(data.d);
+ },
+ error: function (err) {
+ alert(err);
+ }
+ });
+ });
+ });
+ 
+ </script>
+10) Build & run the Project.

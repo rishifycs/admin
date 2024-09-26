@@ -1,0 +1,33 @@
+
+Aim: Define a RESTful accepts the details to be stored in a database & performs 
+CRUD operation.
+
+1. Click on Window menu and click on Projects, Files & Services to open it.
+2. Right click on Java DB and then click on Start Server to start the server.
+3. Now expand Java DB and right click on database name which is Sample or SampleDB. Then click 
+on connect to connect the database with server.
+4. Now create a 2 table in database. 
+For both table the first column which is “id” set as primary key.
+• The first table name is StudentData & column names are: id, name, college.
+• The second table name is Product & column names are: id, product name, information, number
+5. Now create a web application with the name CRUD_Operation
+6. A window willopen like following pic.
+7. Create an entity class from database. Right click on project name -> New -> Entity Class from 
+database.
+8. A window will appear like bellow pic. Select the Data Source either Sample or SampleDB in which 
+your tables are created. Add all tables & click on Next.
+9. Now provide the package name is model.
+10. Click on Next & then Finish.
+11. Right click on project name and create JSF Pages from Entity Classes.
+Right click on project name -> New -> JSF Pages from Entity Classes
+12. Select all Entity Classes and click on Add button and then Next button on below.
+13. A window like below will appear on the screen. Enter the data into that window as entered in 
+below pic and click on Next button.
+14. Now click on Finish.
+15. Right click on project name and create RESTful Web Services from Entity Classes.
+Right click on project name -> New -> RESTful Web Services from Entity Classes
+16. A window like below will appear on the screen. Select the entity class & click on Next button.
+17. Enter the data into that window as entered in below pic and click on Finish button.
+18. Now right click on web application name and Deploy it.
+19. Now right click on project name and run it
+20. A window will open in browser like below.

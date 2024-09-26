@@ -1,0 +1,70 @@
+Aim: Define a web service method that returns the contents of a database in a JSON
+string. The contents should be displayed in a tabular format.
+
+1. Click on Window menu and click on Projects, Files & Services to open it.
+2. Right click on Java DB and then click on Start Server to start the server.
+3. Now expand Java DB and right click on sample and then click on connect toconnect
+the sample database with server.
+4. Now we are going to create a table in default database sample.Right click on Table ->
+Create Table
+5. Give table name as FRIENDS.
+6. Now click on Add column button to add columns in table.
+Enter details as in below pic and select Primary key. After that click on OK
+button.
+7. Now add second column with following detail. But don’t select primary andclick on OK button
+8. Now click on OK button.
+9. Now you can see a table with name FRIENDS in the table
+10. Right click on FRIENDS to view and add records into it.
+11. Now click on the leftmost icon in second panel to insert some record.
+12. Insert a record and then click on Add Row button to insert more record.After that click on OK button
+to finish.
+13. As you can see, I have entered 7 records.
+14. Now create a web application with name Server. After that click on Next andthen Finish button.
+15. Now create a RESTful Web Service from Database by right click on project name.
+16. Choose Data Source jdbc/sample.
+17. Now select FRIENDS and click on Add button. After that click on Next button.
+18.Enter Package name as com.kk and click on Next button and then Finish
+19. Now open selected file by double click on it.
+20. Now remove the selected part from every method in this file. So that it will communicate only in
+JSON format. You can also use methods to convert it. Butthis is easiest method.
+21. After that right click on project name and Deploy it.
+22. Now create one more Web Application as Client. After that click on Next andthen Finish button.
+23. Now open the index.html file of Client project and add the following code inbetween HEAD tag.
+<style>
+table {
+font-family: arial, sans-serif;border-collapse: collapse;
+ }
+td, th {
+border: 1px solid #000000;text-align: center; padding: 8px;
+ }
+</style>
+<script>
+var request = new XMLHttpRequest();
+request.open('GET','http://localhost:8080/Server/webresources/com.kk.friends/', true);
+request.onload = function ()
+{
+// begin accessing JSON data here
+var data = JSON.parse(this.response);
+for (var i = 0; i < data.length; i++) {
+var table = document.getElementById("myTable");
+var row = table.insertRow();
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+cell1.innerHTML = data[i].id;
+cell2.innerHTML = data[i].firstname;
+}
+};
+request.send();
+</script>
+Note:URL is sensitive. It will change accordingly if you have not giventhe project and file names as
+of mine.
+24. Replace the content of body tag with following code.
+<table id="myTable">
+<tr>
+<th> ID</th>
+<th>NAME</th>
+</tr>
+</table>
+25.Now run the Client Web Application.
+26. A window will open in browser which represents a data in tabular format.These data are the records 
+entered in FRIEND table.

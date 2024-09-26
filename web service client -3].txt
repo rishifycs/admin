@@ -1,0 +1,76 @@
+Aim: Develop client which consumes web services developed in different platform.
+Requirement: Visual Studio Community 2017 (Version : 15.8 or latest)
+
+In this practical we are creating Web Service in Visual Studio ant then we willconsume it in NetBeans.
+
+1. Open Visual Studio IDE and click on File.
+File -> New -> Project
+2. Click on Web.
+ Select ASP.NET Web Application and give Name as Service. After that clickon OK button.
+3. Select Empty and click on OK button.
+4. Now you can see, on right side in Solution Explorer Service project is created.
+5. Right click on Service -> Add -> New Item.
+6. Search for Web Service
+7. Select Web Service and give Name as Operation. After then click on Add button.
+8. After click on Add button, Operaion.asmx.cs file will be automatically openotherwise open it from 
+Solution Explorer and Add the following code intoClass Operation.
+[WebMethod]
+public double Add(double a, double b)
+{
+double sum = a + b;return sum;
+}
+[WebMethod]
+public double Multi(double a, double b)
+{
+double Multi = a*b;
+return Multi
+}
+After that press Ctrl+S to save the methods. Actually we are creating twomethods for Web Service. One
+is for addition of two numbers and secondone is for multiplication of two numbers.
+9. Now run the project by click on Green arrow button below the Windowmenu.
+10. A window will open in browser and that is our web service.
+11. You can check services by click on Add or Multi option. But we don’t need this.
+12. Now a new window will open. Select the link and copy it. We will use thislink in NetBeans to
+consume these services.
+13. Don’t close Visual Studio and browser, just minimize it otherwise serverwill stop. But save the link
+anywhere, so that we can use it later.
+14. Now open NetBeans.
+15. Create a Web Application with name ServiceClient. Next -> Finish.
+16. Now create a Web Service Client.
+Right click on ServiceClient -> New -> others.
+17. Other Now select Web Services in Categories section
+18. Select Web Service Client in File Types and Click on Next button.
+19. Select WSDL URL and paste the link that you have copied from browser onrun of Visual Studio 
+enter package name com.dd. After that click on Finish button
+20. As you can see, we got both the service methods i.e. Add & Multi. But in thispractical I’m going to
+use only one service method. You can do for both also.
+21. Now create a JSP page. Right click on ServiceClient -> New -> Other
+22. Select Web in Categories section -> Select JSP and click on Next button.
+23. Enter File Name Add and click on Finish button.
+24. In Add.jsp file delete the selected part in body tag, because we don’t need this.
+25. Right click between body tag and select Call Web Service Operation.
+26. Expand and select Add. After select, click on OK button.
+27. Now add the following code outside of try block.
+double num1 = Double.parseDouble(request.getParameter("txt1"));
+double num2 = Double.parseDouble(request.getParameter("txt2"));
+28. Now pass num1 & num2 to a & b variable respectively. After that pressCtrl+S to save this code.
+29. Now create a JSP page. Right click on ServiceClient -> New -> Other
+30. Select Web in Categories section -> Select JSP and click on Next button.
+31. Enter File Name Multiply and click on Finish button
+32. In Multiply.jsp file delete the selected part in body tag, because we don’t needthis.
+33. Right click between body tag and select Call Web Service Operation.
+34. Expand and select Multi. After select, click on OK button.
+35. Now add the following code outside of try block.
+double num1=Double.parseDouble(request.getParameter("txt1"));
+double num2 = Double.parseDouble(request.getParameter("txt2"));
+36. Now pass num1 & num2 to a & b variable respectively. After that pressCtrl+S to save this code.
+37. Now open index.html file of ServiceClient project and replace the contentsof body tag with following
+code. After that press Ctrl+S to save it.
+<form>
+<input type="text" name="txt1" placeholder="Enter FirstNumber"><br><br>
+<input type="text" name="txt2" placeholder="Enter SecondNumber"><br><br>
+<input type="submit" formaction="Multiply.jsp" value="Add Numbers">
+</form>
+38. Now run the ServerClient web application.
+39. A window will open in browser as below.
+40. Now enter two numbers and click on Add Numbers button. Wait to getresult……..
